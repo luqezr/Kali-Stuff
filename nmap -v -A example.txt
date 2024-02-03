@@ -1,0 +1,101 @@
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-01-24 19:29 -03
+NSE: Loaded 156 scripts for scanning.
+NSE: Script Pre-scanning.
+Initiating NSE at 19:29
+Completed NSE at 19:29, 0.00s elapsed
+Initiating NSE at 19:29
+Completed NSE at 19:29, 0.00s elapsed
+Initiating NSE at 19:29
+Completed NSE at 19:29, 0.00s elapsed
+Initiating Ping Scan at 19:29
+Scanning scanme.nmap.org (45.33.32.156) [4 ports]
+Completed Ping Scan at 19:29, 0.23s elapsed (1 total hosts)
+Initiating Parallel DNS resolution of 1 host. at 19:29
+Completed Parallel DNS resolution of 1 host. at 19:29, 0.01s elapsed
+Initiating SYN Stealth Scan at 19:29
+Scanning scanme.nmap.org (45.33.32.156) [1000 ports]
+Discovered open port 22/tcp on 45.33.32.156
+Discovered open port 80/tcp on 45.33.32.156
+Discovered open port 31337/tcp on 45.33.32.156
+Discovered open port 9929/tcp on 45.33.32.156
+Completed SYN Stealth Scan at 19:29, 7.56s elapsed (1000 total ports)
+Initiating Service scan at 19:29
+Scanning 4 services on scanme.nmap.org (45.33.32.156)
+Completed Service scan at 19:29, 10.79s elapsed (4 services on 1 host)
+Initiating OS detection (try #1) against scanme.nmap.org (45.33.32.156)
+Retrying OS detection (try #2) against scanme.nmap.org (45.33.32.156)
+Initiating Traceroute at 19:29
+Completed Traceroute at 19:29, 3.37s elapsed
+Initiating Parallel DNS resolution of 15 hosts. at 19:29
+Completed Parallel DNS resolution of 15 hosts. at 19:29, 0.94s elapsed
+NSE: Script scanning 45.33.32.156.
+Initiating NSE at 19:29
+Completed NSE at 19:29, 5.56s elapsed
+Initiating NSE at 19:29
+Completed NSE at 19:29, 0.80s elapsed
+Initiating NSE at 19:29
+Completed NSE at 19:29, 0.00s elapsed
+Nmap scan report for scanme.nmap.org (45.33.32.156)
+Host is up (0.20s latency).
+Other addresses for scanme.nmap.org (not scanned): 2600:3c01::f03c:91ff:fe18:bb2f
+Not shown: 993 closed tcp ports (reset)
+PORT      STATE    SERVICE      VERSION
+22/tcp    open     ssh          OpenSSH 6.6.1p1 Ubuntu 2ubuntu2.13 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   1024 ac:00:a0:1a:82:ff:cc:55:99:dc:67:2b:34:97:6b:75 (DSA)
+|   2048 20:3d:2d:44:62:2a:b0:5a:9d:b5:b3:05:14:c2:a6:b2 (RSA)
+|   256 96:02:bb:5e:57:54:1c:4e:45:2f:56:4c:4a:24:b2:57 (ECDSA)
+|_  256 33:fa:91:0f:e0:e1:7b:1f:6d:05:a2:b0:f1:54:41:56 (ED25519)
+80/tcp    open     http         Apache httpd 2.4.7 ((Ubuntu))
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+|_http-favicon: Nmap Project
+|_http-server-header: Apache/2.4.7 (Ubuntu)
+|_http-title: Go ahead and ScanMe!
+135/tcp   filtered msrpc
+139/tcp   filtered netbios-ssn
+445/tcp   filtered microsoft-ds
+9929/tcp  open     nping-echo   Nping echo
+31337/tcp open     tcpwrapped
+Aggressive OS guesses: Linux 5.0 - 5.4 (96%), Linux 4.15 - 5.8 (94%), Linux 5.0 - 5.5 (93%), Linux 5.1 (93%), Linux 2.6.32 - 3.13 (93%), Linux 2.6.22 - 2.6.36 (92%), Linux 3.10 - 4.11 (92%), Linux 5.0 (91%), Linux 3.10 (91%), Linux 5.4 (91%)
+No exact OS matches for host (test conditions non-ideal).
+Uptime guess: 32.077 days (since Sat Dec 23 17:39:31 2023)
+Network Distance: 25 hops
+TCP Sequence Prediction: Difficulty=258 (Good luck!)
+IP ID Sequence Generation: All zeros
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+TRACEROUTE (using port 111/tcp)
+HOP RTT       ADDRESS
+1   0.98 ms   192.168.1.1
+2   31.87 ms  192.168.0.1
+3   ... 7
+8   10.81 ms  195.22.220.56
+9   ...
+10  43.48 ms  149.3.181.65
+11  155.42 ms ae-2.r23.miamfl02.us.bb.gin.ntt.net (129.250.2.196)
+12  166.75 ms ae-1.a03.miamfl02.us.bb.gin.ntt.net (129.250.7.46)
+13  156.25 ms ae-2.akamai.miamfl02.us.bb.gin.ntt.net (157.238.179.26)
+14  147.84 ms ae11.r01.mia01.icn.netarch.akamai.com (23.207.239.34)
+15  160.07 ms ae3.r02.atl01.icn.netarch.akamai.com (23.32.63.33)
+16  176.21 ms ae17.r01.dfw01.icn.netarch.akamai.com (23.193.112.146)
+17  181.62 ms ae3.r02.lax01.icn.netarch.akamai.com (23.32.63.9)
+18  175.45 ms ae0.r01.lax01.icn.netarch.akamai.com (23.32.63.222)
+19  197.52 ms ae18.r02.sjc01.icn.netarch.akamai.com (23.193.113.13)
+20  196.52 ms ae2.r11.sjc01.ien.netarch.akamai.com (23.207.232.39)
+21  204.54 ms a23-203-158-51.deploy.static.akamaitechnologies.com (23.203.158.51)
+22  ... 24
+25  191.50 ms scanme.nmap.org (45.33.32.156)
+
+NSE: Script Post-scanning.
+Initiating NSE at 19:29
+Completed NSE at 19:29, 0.00s elapsed
+Initiating NSE at 19:29
+Completed NSE at 19:29, 0.00s elapsed
+Initiating NSE at 19:29
+Completed NSE at 19:29, 0.00s elapsed
+Read data files from: /usr/bin/../share/nmap
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 34.82 seconds
+           Raw packets sent: 1139 (51.808KB) | Rcvd: 1077 (44.992KB)
+                                                                      

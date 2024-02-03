@@ -1,0 +1,12 @@
+Attack procedure 
+
+- Change mac
+- Mask ip if possible
+
+
+
+Commands
+
+whoami
+uname -a
+/sbin/ifconfig

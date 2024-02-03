@@ -1,0 +1,49 @@
+**********************
+*******Commands*******
+**********************
+
+/////////////////////////////////////////////////////////////////
+FILES & FOLDERS 
+/////////////////////////////////////////////////////////////////
+cd / change directory
+cd .. / move one directory back 
+pwd / print working directory
+ls / list files
+ls -la / list all files (includes hidden)
+mkdir folder_name / make directory 
+touch file.txt / create file
+cp file_name directory / copy file to directory 
+mv file_name directory / moves file to directory
+mv file_name directory new_file_name / moves to targeted directory and changes file name
+rm file.txt / remove file 
+rm folder -r / removes directory
+rm * -r / deletes everything in current working directory
+clear / clears console
+chmod +x program.py / make file executable 
+cat file / prints content of file as terminal output
+cat file.txt | grep search_criteria / searchs text input in file
+echo input_text > file.txt / rewrite input text to the the file
+
+history / shows previous commands from session
+man program_name / shows manual for specified program
+locate file_name / locate file 
+locate search_criteria / locates every file with current search criteria
+
+/////////////////////////////////////////////////////////////////
+SYSTEM & POWER 
+/////////////////////////////////////////////////////////////////
+shutdown / shutdowns system in 1 minute
+shutdown -h now / shutdown system instantly 
+reboot / reboots system
+apt-get update / check  updates from repository
+ps / show current terminal running procceses
+apt-get upgrade / upgrades repositories
+top / shows all current running procceses 
+uname / Name of operating system
+whoami / shows current user
+su user_name / changes user
+usermod -aG sudo user_name / Add user to sudo group
+ifconfig / linux equivalent of  windows' ipconfig
+netstat / shows network information
+netstat -nr / gives you IP address of the gateway
+netstat -ntp / gives you network addresses of current programs 

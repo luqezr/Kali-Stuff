@@ -1,0 +1,79 @@
+Compatible chipsets/network cards:
+
+* means recommended 
+
+Chipsets:
+-Atheros AR9271
+-Ralink RT3070
+-Ralink RT3572
+-Ralink RT5572
+-Realtek RTL8187L
+-Realtek RTL8192CU
+-Realtek RTL8812AU* support up to 2 antennas
+-Realtek RTL8814AU* supports up to 4 antennas
+
+Network Cards:
+-Alfa AWUS036NHA* / KaliCompatible / 2,4GHz / Atheros AR9271
+-Alfa AWUS036AC / KaliCompatible / 2,4GHz & 5GHz / Realtek RTL8812AU / 300Mbps & 867Mbps / USB 3.0 / USB-A / 2 Interchangeable antennas / ~$50USD
+-Alfa AWUS036ACH* / KaliCompatible & Windows Compatible / 2,4GHz & 5GHz / Realtek RTL8812AU / 300Mbps & 867Mbps / USB 3.0 / USB-C / 2 Interchangeable antennas 
+-Alfa AWUS036ACS / 2,4GHz & 5GHz / Realtek RTL8812AU / USB 2.0 / USB-A / 1 Interchangeable antenna
+-Alfa AWUS052NH / KaliCompatible / 2,4GHz & 5GHz / Ralink RT3572 / Mini USB / 300Mbps & 867Mbps 
+-Alfa AWUS036EAC / KaliCompatible / 2,4GHz & 5GHz / Realtek RTL8812AU / USB 3.0 / USB-A
+-Alfa AWUS1900 / KaliCompatible & Windows (Driver not so good) / 2,4GHz & 5GHz / USB 3.0 / 4 Interchangeable antennas 
+-Alfa AWPCIE-1900U / KaliCompatible / 2,4GHz & 5GHz / Realtek RTL8814AU / Full-Size mini PCIe / 
+-ASUS USB N13 Rev B1 / KaliCompatible / 2,4GHz / Realtek RTL8192CU / 100mbps
+-D-Link DWA-182 Rev C / KaliCompatible / 2,4GHz & 5GHz / Realtek RTL8812AU / USB 3.0 (Rev C1A) / 300Mbps & 867Mbps
+-D-Link DWA-192 / KaliCompatible / 2,4GHz /  Realtek RTL8814AU
+-Edimax AC600 USB / KaliCompatible / 2,4GHz / Realtek RTL8811AU 
+-Netis WF2190 / KaliCompatible / 2,4GHz / Realtek RTL8812AU / USB 3.0
+-Netis WF2123 / KaliCompatible / 2,4GHz /Realtek RTL8192CU 
+-Tenda U12 / KaliCompatible / 2,4GHz / Realtek RTL8812AU / USB 3.0
+-TRENDnet TEW 809U* / KaliCompatible / 2,4GHz & 5GHz / Realtek RTL8812AU / 600Mpbs & 1300Mbps / USB 3.0 / Interchangeable antennas / ~$50USD / 4 antennas 
+-TRENDnet TEW-809UB
+-TRENDnet AC1900
+-TP-Link TL-WN722N / KaliCompatible / 2,4GHz / Atheros 9271
+-TP-LINK TL-WN821N Rev V4 / KaliCompatible / 2,4GHz / Realtek RTL8192CU
+-TP-LINK TL-WN822N / KaliCompatible / 2,4GHz / Realtek RTL8192CU
+-TP-LINK TL-WN823N Rev V1 / KaliCompatible / Realtek RTL8192CU
+-TP-Link AC1900 Archer T9UH / KaliCompatible / 2,4GHz & 5GHz / Realtek RTL8814AU
+-TP-LINK Archer T4UH Rev V2 / KaliCompatible / 2,4 GHz / Realtek RTL8812AU
+-TP-LINK Archer T4U Rev V3 / KaliCompatible / 2,4 GHz / Realtek RTL8812AU
+-Panda PAU05 USB / KaliCompatible / 2,4GHz / Ralink RT3070 / 300mbps
+-Panda Wireless PAU09 N600 / KaliCompatible / 2,4GHz & 5GHz / Ralink RT5572
+-ZyXEL NWD6605 / KaliCompatible / 2,4GHz / Realtek RTL8812AU
+
+Kali Nethunter
+-ATH9K_HTC (AR9271, AR7010)
+-ATH10K
+-MT7610U
+-MT7612U
+-RT73
+-RT2800USB
+-RT3070
+-RTL8188EUS
+-RTL8188CU
+-RTL8188RU
+-RTL8192CU
+-RTL8192EU
+-RTL8723AU
+-RTL8811AU
+-RTL8812AU
+-RTL8814AU
+-RTL8821AU
+-RTW88-USB
+-QCACLD-2.0
+-QCACLD-3.0
+-BCM4339 (Cellphone / Nexus5)
+
+The following devices are confirmed to be working with a NetHunter build:
+
+-TP-Link TL-WN722N v1 (Please note that v2 & v3 have unsupported chipsets) but v2 and v3 may be supported using RTL8812AU drivers.)
+-TP-Link TL-WN822N v1 - v4
+-Alfa Networks AWUS036ACH
+-Alfa Networks AWUS036NEH (recommended by @jcadduono)
+-Alfa Networks AWUS036NHA
+-Alfa Networks AWUSO36NH
+-Panda PAU05 Nano
+
+https://kalitut.com/usb-wi-fi-adapters-supporting-monitor/
+https://www.kali.org/docs/nethunter/wireless-cards/#:~:text=External%20wireless%20cards%20are%20necessary,2012)%2C%20and%20Nexus%206P.

